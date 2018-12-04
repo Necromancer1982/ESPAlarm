@@ -34,6 +34,26 @@ ESPAlarm is connected via a potential-free auxilary contractor, directly to the 
 ![Telegram Chanel](/images/channel.jpg)
 
 Every fist saturday each month, between 13:00 and 13:30, will be a testalarm. But there is a tricky exeption... If this first saturday is a public holiday, the testalarm will be shifted one week. To check and compare the time and date of an actual occurring alarm, ESPAlarm synchronisizes to acutal time by usage of an [NTP-Server](https://www.pool.ntp.org/zone/@). The timing of an testalarm is the same as a firealarm.
+
 So if a firealarm occures, ESPAlarm first checks if today is saturday and a public holiday. Checking the weekday is very easy. The Time-Library of Arduino IDE provides the weekday as integer. To check if today is a public holiday, the actual date (excluding year) will be compared to a look up table, containing all "weekday-variable" public holidays. If its a public holiday, a public-holiday-flag will be set.
+
 After that, ESPAlarm checks if a alarm occures on a saturday between 13:00 and 13:30. If so and day in month is before the 8th and no public-holiday-flag is set, it's a testalarm. Otherwise, a firealarm will be sent.
 On the other hand, if the alarm occures on a saturday at the same time, the public-holiday-flag is set and day in month is in between 8th and 14th, the shifted testalarm will be sent.
+
+**The Telegram Bot behind**
+
+As already mentioned the main acting part of ESPAlarm is the API control of a telegram bot. This bot sends all messages trough the telegram channel. 
+The API control also enables the opportunity to control and comunicate with ESPAlarm. Therefore the following instruction set is given:
+
+- /start    starts the bot
+- /reset    perform a software reset of ESPAlarm
+- /info     shows the actual status of ESPAlarm
+- /time     shows the actual runtime of ESPAlarm since last reset
+- /help     shows the instruction set
+- /alets    shows the amount of already sent alarms
+- /alarmme  enables/diables the alarm via telegram channel
+- /delete   resets the alarm-counter
+
+For easier usage of the bot, a custom keyboard for the major instructions is also implemented. Critical instructions, like /delete or /reset must be confirmed by pressing "yes/no"-Buttons on a given inline keyboard.
+
+![Telegram Bot](/images/bot.jpg)
