@@ -15,7 +15,7 @@ ESPAlarm, written for ESP8266-Module ESP-12F on [Arduino IDE](https://www.arduin
 
 **Telegram as alarm platform**
 
-Telegram offers you the opportunity to generate [Bots](https://core.telegram.org/bots/faq) and [Chanels](https://telegram.org/faq_channels).
+Telegram offers the opportunity to generate [Bots](https://core.telegram.org/bots/faq) and [Chanels](https://telegram.org/faq_channels).
 A bot is a kind of telegram-user which can be accessed and controled via [telegram bot-API](https://core.telegram.org/bots). In my usecase, the software of the bot (e.g. on which key words it reacts or what its answers are) is settled in the software of ESPAlarm and controls the "Bot-User" via Bot-API. This bot is, beside me, admin of a telegram chanel and sends the alarm messages straight to it. All comerades of our fire department are allowed to read this private chanel and will be informed if any alarm occures.
 
 
@@ -59,3 +59,18 @@ The API control also enables the opportunity to control and comunicate with ESPA
 For easier usage of the bot, a custom keyboard for the major instructions is also implemented. Critical instructions, like /delete or /reset must be confirmed by pressing "yes/no"-Buttons on a given inline keyboard.
 
 ![Telegram Bot](/images/bot.jpg)
+
+**Additional functions**
+
+By using NTP and Telegram, a connection trough a access point, connected to the internet must be established. Therefore a built-in enduser Setup for setting up the WiFi settings (initial operation) is implemented on ESPAlarm. So on powerup, ESPAlarm tries to connect to the last, in module stored access point. If no connection is possible, the ESPAlarm starts it self as a access point. The enduser setup can be accessed e.g. via smart phone by connecting and opening IP 192.168.4.1
+After entering the SSID and password of the AP and the established connection trough it, ESPAlarms bot sends a short status message to show it is working.
+
+After that, ESPAlarm is working and will forward each alarm trough the given telegram channel. All alarms are counted and stored in the EEPROM of the module. Also all important flags will also be stored in EEPROM so even if a power fail occures, ESPAlarm will work error free.
+
+The actual status of ESPAlarm is shown by a WS2812 RGB-LED. The following states can be visualized:
+
+| color | mode | status |
+|-------|------|--------|
+| green | continuous | every thing is fine, standby, awaiting alarm |
+
+
