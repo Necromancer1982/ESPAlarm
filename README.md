@@ -47,14 +47,14 @@ The API control also enables the opportunity to control and comunicate with ESPA
 
 | instruction| explanation                                           |
 |------------|-------------------------------------------------------|
-| /start     | starts the bot                                        |
-| /reset     | perform a software reset of ESPAlarm                  |
-| /info      | shows the actual status of ESPAlarm                   |
-| /time      | shows the actual runtime of ESPAlarm since last reset |
-| /help      | shows the instruction set                             |
-| /alets     | shows the amount of already sent alarms               |
-| /alarmme   | enables/diables the alarm via telegram channel        |
-| /delete    | resets the alarm-counter                              |
+| /start     | Starts the bot                                        |
+| /reset     | Perform a software reset of ESPAlarm                  |
+| /info      | Shows the actual status of ESPAlarm                   |
+| /time      | Shows the actual runtime of ESPAlarm since last reset |
+| /help      | Shows the instruction set                             |
+| /alets     | Shows the amount of already sent alarms               |
+| /alarmme   | Enables/diables the alarm via telegram channel        |
+| /delete    | Resets the alarm-counter                              |
 
 For easier usage of the bot, a custom keyboard for the major instructions is also implemented. Critical instructions, like /delete or /reset must be confirmed by pressing "yes/no"-Buttons on a given inline keyboard.
 
@@ -71,6 +71,12 @@ The actual status of ESPAlarm is shown by a WS2812 RGB-LED. The following states
 
 | color | mode | status |
 |-------|------|--------|
-| green | continuous | every thing is fine, standby, awaiting alarm |
+| green | continuous | Every thing is fine, standby, awaiting alarm |
+| blue | continuous | Start AP-Mode, WiFi-Config via enduser setup possible |
+| pink | blinking | Connection lost, awaiting reconnection |
+| orange | continuous | WiFi-Manager timeout, rebooting ESPAlarm |
+| red | flashing | Alarm! Telegram message will be sent out |
+| red | blinking | Alarm, waiting (65 s) until rearmed |
 
+If it's necessary to change/update the firmware of ESPAlarm, a built-in Arduino OTA flashing interface offers the opprotunity to flash a new software directly via WiFi, without opening the housing.
 
