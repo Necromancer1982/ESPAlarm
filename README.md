@@ -45,7 +45,7 @@ On the other hand, if the alarm occures on a saturday at the same time, the publ
 As already mentioned the main acting part of ESPAlarm is the API control of a telegram bot. This bot sends all messages trough the telegram channel. 
 The API control also enables the opportunity to control and comunicate with ESPAlarm. Therefore the following instruction set is given:
 
-| instruction| explanation
+| instruction| explanation                                           |
 |------------|-------------------------------------------------------|
 | /start     | starts the bot                                        |
 | /reset     | perform a software reset of ESPAlarm                  |
