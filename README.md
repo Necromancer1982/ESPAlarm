@@ -45,14 +45,14 @@ On the other hand, if the alarm occures on a saturday at the same time, the publ
 As already mentioned the main acting part of ESPAlarm is the API control of a telegram bot. This bot sends all messages trough the telegram channel. 
 The API control also enables the opportunity to control and comunicate with ESPAlarm. Therefore the following instruction set is given:
 
-- /start    <tab id=t1>starts the bot
-- /reset    <tab id=t1>perform a software reset of ESPAlarm
-- /info     <tab id=t1>shows the actual status of ESPAlarm
-- /time     <tab id=t1>shows the actual runtime of ESPAlarm since last reset
-- /help     <tab id=t1>shows the instruction set
-- /alets    <tab id=t1>shows the amount of already sent alarms
-- /alarmme  <tab id=t1>enables/diables the alarm via telegram channel
-- /delete   <tab id=t1>resets the alarm-counter
+- /start    <tab indent=20>starts the bot
+- /reset    <tab indent=20>perform a software reset of ESPAlarm
+- /info     <tab indent=20>shows the actual status of ESPAlarm
+- /time     <tab indent=20>shows the actual runtime of ESPAlarm since last reset
+- /help     <tab indent=20>shows the instruction set
+- /alets    <tab indent=20>shows the amount of already sent alarms
+- /alarmme  <tab indent=20>enables/diables the alarm via telegram channel
+- /delete   <tab indent=20>resets the alarm-counter
 
 For easier usage of the bot, a custom keyboard for the major instructions is also implemented. Critical instructions, like /delete or /reset must be confirmed by pressing "yes/no"-Buttons on a given inline keyboard.
 
