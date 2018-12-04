@@ -7,7 +7,7 @@
 
 **Vision**
 
-By being a member of voluntary fire department since my 14th birthday, I know verry well the problems of siren alarm. For exemple if the wind blows in a bad direction, you can't differ if the siren of your homebase, or the sirens of the villages around your homebase are alerting. Or simple you are out of earshot.
+By being a member of voluntary fire department since my 14th birthday, I know verry well the problems of siren alarm. For exemple if the wind blows in a bad direction, you can't differ if the siren of your homebase, or the sirens of the villages around your homebase are alerting. Or for an other example you're simple out of earshot.
 So I was looking to find a solution to get a additional alarm on the mobile phones of me and my comrades.
 
 ESPAlarm, written for ESP8266-Module ESP-12F on [Arduino IDE](https://www.arduino.cc/en/Main/Software) allows to forward any kind of siren alarm, either for civil usage (e.g. desaster alarm) or fire alarm to a [telegram channel](https://telegram.org/).
