@@ -21,7 +21,7 @@ A bot is a kind of telegram-user which can be accessed and controled via [telegr
 
 **Detection of alarm-types**
 
-There are three different types of alarm:
+There are four different types of alarm:
 - Firealarm (1 min continuous tone with two interrupts)
 - Testalarm (same timing as firealarm, every 1st Saturday each month, except public holyday, testalarm will be on following saturday)
 - Desasterslarm (1 min wail tone)
