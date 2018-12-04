@@ -62,10 +62,10 @@ For easier usage of the bot, a custom keyboard for the major instructions is als
 
 **Additional functions**
 
-By using NTP and Telegram, a connection trough a access point, connected to the internet must be established. Therefore a built-in enduser Setup for setting up the WiFi settings (initial operation) is implemented on ESPAlarm. So on powerup, ESPAlarm tries to connect to the last, in module stored access point. If no connection is possible, the ESPAlarm starts it self as a access point. The enduser setup can be accessed e.g. via smart phone by connecting and opening IP 192.168.4.1
-After entering the SSID and password of the AP and the established connection trough it, ESPAlarms bot sends a short status message to show it is working.
+By using NTP and Telegram, a connection trough a access point, connected to the internet must be established. Therefore a built-in enduser setup, for setting up the WiFi settings (initial operation), is implemented on ESPAlarm. So on powerup, ESPAlarm tries to connect to the last, in module stored access point. If no connection is possible, ESPAlarm starts it self as an access point. The enduser setup can be accessed e.g. via smart phone by connecting and opening IP 192.168.4.1
+After entering the SSID and password of the AP and establishing the connection trough it, ESPAlarms bot sends a short status message to show it is working.
 
-After that, ESPAlarm is working and will forward each alarm trough the given telegram channel. All alarms are counted and stored in the EEPROM of the module. Also all important flags will also be stored in EEPROM so even if a power fail occures, ESPAlarm will work error free.
+After that, ESPAlarm is on standby and will forward each alarm trough the given telegram channel. All alarms are counted and stored in the EEPROM of the module. Also all important flags will be stored in EEPROM so even if a power fail occures, ESPAlarm will work error free.
 
 The actual status of ESPAlarm is shown by a WS2812 RGB-LED. The following states can be visualized:
 
