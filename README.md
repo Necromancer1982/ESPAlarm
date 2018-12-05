@@ -1,5 +1,5 @@
 # ESPAlarm
-## Module to forward fire-, test-, desaster- and all-clear alarms from siren control to telegram chanel
+## Module to forward fire-, test-, desaster- and all-clear alarms from siren control to telegram channel
 
 **Version History**
 
@@ -15,8 +15,8 @@ ESPAlarm, written for ESP8266-Module ESP-12F on [Arduino IDE](https://www.arduin
 
 **Telegram as alarm platform**
 
-Telegram offers the opportunity to generate [Bots](https://core.telegram.org/bots/faq) and [Chanels](https://telegram.org/faq_channels).
-A bot is a kind of telegram-user which can be accessed and controled via [telegram bot-API](https://core.telegram.org/bots). In my usecase, the software of the bot (e.g. on which key words it reacts or what its answers are) is settled in the software of ESPAlarm and controls the "Bot-User" via Bot-API. This bot is, beside me, admin of a telegram chanel and sends the alarm messages straight to it. All comerades of our fire department are allowed to read this private chanel and will be informed if any alarm occures.
+Telegram offers the opportunity to generate [Bots](https://core.telegram.org/bots/faq) and [Channels](https://telegram.org/faq_channels).
+A bot is a kind of telegram-user which can be accessed and controled via [telegram bot-API](https://core.telegram.org/bots). In my usecase, the software of the bot (e.g. on which key words it reacts or what its answers are) is settled in the software of ESPAlarm and controls the "Bot-User" via Bot-API. This bot is, beside me, admin of a telegram channel and sends the alarm messages straight to it. All comerades of our fire department are allowed to read this private channel and will be informed if any alarm occures.
 
 
 **Detection of alarm-types**
@@ -31,7 +31,7 @@ There are four different types of alarm:
 
 ESPAlarm is connected via a potential-free auxilary contractor, directly to the siren motor control. The detection of the alarm type will be performed by a kind of time based "state machine" and several software flags. In case of alarm, there are three sequentially time loops. The first one checks, if the alarm signal form motor control lasts longer than 0,5s (Debouncing of auxilary contractor, elimination of interferences on signal line). The second one checks if the signal is still high after 3s. If so, and no desaster-alarm-flag is set, the alarm type must be a firealarm and the corresponding message will be send. If not, the alarm must be a desaster alarm, the alarm message will be sent and a desaster-alarm-flag will be set. The third time loop only acts if this flag is set and the signal is still high after 3s. In this case, the alarm can either be a firealarm or a all-clear alarm. ESPAlarm checks after 15s again the level of the signal. If level is still high, a all-clear alarm with the related message will be triggered, if not the alarm type must be a firealarm.
 
-![Telegram Chanel](/images/channel.jpg)
+![Telegram Channel](/images/channel.jpg)
 
 Every fist saturday each month, between 13:00 and 13:30, will be a testalarm. But there is a tricky exeption... If this first saturday is a public holiday, the testalarm will be shifted one week. To check and compare the time and date of an actual occurring alarm, ESPAlarm synchronisizes to acutal time by usage of an [NTP-Server](https://www.pool.ntp.org/zone/@). The timing of an testalarm is the same as a firealarm.
 
