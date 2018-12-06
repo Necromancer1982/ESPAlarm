@@ -24,7 +24,7 @@
 // ###                                                                               ###
 // ### Detectable alarm types:                                                       ###
 // ###  - Fire alarm      ____|---|__|---|__|---|____ (Intervall 12s, Signal 60s)    ###
-// ###    * Testalarm (between 13:00 and 13:30 first Saturday each month, excluded   ###
+// ###    * Testalarm (between 10:00 and 11:00 first Saturday each month, excluded   ###
 // ###      puplic holidays, if necessary shift instant one week) also detectable    ###
 // ###  - Desaster alarm  ____|-|_|-|_|-|_|-|_|-|____ (Intervall 2s, Signal 60s)     ###
 // ###  - All-Clear alarm ____|-----------------|____ (Continuous tone, 60s)         ###
@@ -306,7 +306,7 @@ void FireAlarm () {
     }
   }
 // *** Set test alarm flag if first saturday isn't a public holiday *************************************************************************************************************
-  if ((minute() <= 30) && (hour() == 13) && (weekday() == 7) && (day() <= 7)) {       // Check if time is between 13:00 and 13:30 and weekday is saturday and date <= 7 -> first saturday in month
+  if ((hour() == 10) && (weekday() == 7) && (day() <= 7)) {                           // Check if time is between 10:00 and 11:00 and weekday is saturday and date <= 7 -> first saturday in month
     EEPROM.begin(512);                                                                // Declare size of EEPROM
     phf = EEPROM.read(addr_phf);                                                      // Read EEPROM
     number_phf = (int) phf;                                                           // Set global variable according EEPROM value
@@ -321,7 +321,7 @@ void FireAlarm () {
     }
   }
 // *** Set test alarm flag for second saturday if first was a public holiday ****************************************************************************************************       
-  if ((minute() <= 30) && (hour() == 13) && (weekday() == 7) && ((day() >= 8) && (day() <= 14))) {   // Check if time is between 13:00 and 13:30 and weekday is saturday and date between 8th and 14th -> 2nd saturday in month
+  if ((hour() == 10) && (weekday() == 7) && ((day() >= 8) && (day() <= 14))) {        // Check if time is between 10:00 and 11:00 and weekday is saturday and date between 8th and 14th -> 2nd saturday in month
     EEPROM.begin(512);                                                                // Declare size of EEPROM
     phf = EEPROM.read(addr_phf);                                                      // Read EEPROM
     number_phf = (int) phf;                                                           // Set global variable according EEPROM value
